@@ -15,3 +15,4 @@ fs.readFile('input.txt', (err, data) => {
 });
 
 console.log('Program ended.');
+// flow: readFile() -> console.log('Program ended.') -> fs.callback
