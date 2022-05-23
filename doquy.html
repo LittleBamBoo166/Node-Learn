@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const longestSubstringLength = (str) => {
+            let longestSubstring = "";
+            let curSub = "";
+            let start = 0, end = 1;
+            while (start < str.length && end < str.length) {
+                while (end < str.length && end < str.length) {
+                    if (curSub.indexOf(str.charAt(end - 1)) == -1) {
+                        curSub = str.slice(start, end);
+                        end++;
+                    } else {
+                        start = end; end = start + 1;
+                        if (curSub.length > longestSubstring.length) {
+                            longestSubstring = curSub;
+                            console.log(curSub);
+                            curSub = "";
+                        }
+                        break;
+                    }
+                }
+            }
+
+            return longestSubstring;
+        }
+
+        console.log(longestSubstringLength('abcddddddefghijffffe'));
+    </script>
+</body>
+
+</html>
